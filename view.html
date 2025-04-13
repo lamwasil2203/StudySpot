@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename='study.js') }}"></script>
+
+<div class="container mt-4">
+    <h2 class="mb-4">{{ spot.name }}</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <img src="{{ spot.image }}" alt="{{ spot.name }}" class="img-fluid rounded">
+            <div class="mt-3">
+                <a href="{{ url_for('edit_item', item_id=spot.id) }}" class="btn btn-outline-primary">
+                    Edit Details
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm p-4">
+                <p><strong>Location:</strong> {{ spot.location }}</p>
+                <p><strong>Hours:</strong> {{ spot.time }}</p>
+                <p><strong>Seating:</strong> {{ spot.capacity }}</p>
+                <p><strong>Noise Level:</strong> {{ spot.noise_level }}</p>
+                <p><strong>WiFi:</strong> {{ spot.wifi }}</p>
+                <p><strong>Outlets:</strong> {{ spot.outlets }}</p>
+                <p><strong>Related Topics:</strong> {{ spot.related_topics|join(', ') }} </p>
+                <hr>
+                <h5>About this spot</h5>
+                <p>{{ spot.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

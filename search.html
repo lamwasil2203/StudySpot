@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'study.js') }}"></script>
+
+<div class="container mt-4">
+    {% if query %}
+        <h2>Search Results</h2>
+        <p>Showing results for "{{ query }}"</p>
+
+        <i id="result-count">There are {{ results|length }} results found for "{{ query }}"</i>
+        {% if results %}
+            <ul class="list-group" id="search-results">
+            <br>
+                {% for spot in results %}
+                    <li class="list-group-item">
+                        <a href="/view/{{ spot.id }}?q={{ query }}">{{ spot.name }}</a>
+                        <br>
+                        <a href="/view/{{ spot.id }}?q={{ query }}">{{ spot.description }}</a>
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+        {% else %}
+            <div class="alert alert-warning">
+                No results found for "{{ query }}".
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="alert alert-info">
+            Please enter a search term.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

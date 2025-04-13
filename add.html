@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename='add.js') }}"></script>
+
+<div class="container mt-4">
+    <h2>Add a New Study Spot</h2>
+
+    <!-- Success Message (Initially Hidden) -->
+    <div id="success-message" class="alert alert-success d-none">
+        New item successfully created! <a href="#" id="view-link">See it here</a>
+    </div>
+
+    <!-- Form -->
+    <form id="addForm">
+        <div class="mb-3">
+            <label for="name" class="form-label">Study Spot Name</label>
+            <input type="text" id="name" class="form-control">
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" id="location" class="form-control">
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" class="form-control"></textarea>
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="capacity" class="form-label">Capacity</label>
+            <input type="text" id="capacity" class="form-control">
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="time" class="form-label">Time</label>
+            <input type="text" id="time" class="form-control">
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="text" id="image" class="form-control">
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="noise_level" class="form-label">Noise Levels</label>
+            <input type="text" id="noise_level" class="form-control">
+            <div class="invalid-feedback"></div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="wifi" class="form-label">Wifi</label>
+            <input type="text" id="wifi" class="form-control">
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="outlets" class="form-label">Outlets</label>
+            <input type="text" id="outlets" class="form-control">
+            <div class="invalid-feedback"></div>
+        </div>
+
+       <div class="mb-3">
+        <label for="related_topics" class="form-label">Related Topics</label>
+        <input type="text" id="related_topics" class="form-control">
+        <div class="invalid-feedback"></div>
+        <small class="form-text text-muted">Enter topics separated by commas</small>
+       </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

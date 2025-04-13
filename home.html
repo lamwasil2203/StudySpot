@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename='study.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+    let spots = {{ spots|tojson|safe }};
+    </script>
+
+    <div class="container mt-4">
+        <div class="text-center mb-5">
+            <h2>Find Your Perfect Study Spot</h2>
+            <p class="lead" style="color: orange">
+                Discover the best places to study in New York City based on your preferences.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <p>
+                    Have you ever felt overwhelmed with the number of places you can go to study in the city?
+                    This guide will help you find the most suitable study spot according to your preferences.
+                    Whether you need a quiet library, a cozy café, or a vibrant space to collaborate, we've got you covered!
+                </p>
+            </div>
+        </div>
+
+        <div class="text-center my-4">
+            <img class="animated-gif img-fluid rounded" src="https://64.media.tumblr.com/10e0399be7a7f59f190bf9abf4009ee0/tumblr_nbxcnsWVms1sujz4so3_500.gifv" alt="studying gif">
+        </div>
+
+        <hr>
+
+        <div class="my-5">
+            <h3 class="text-center mb-4">Popular Study Spots</h3>
+            <div id="popular-spots" class="row"></div>
+        </div>
+    </div>
+{% endblock %}

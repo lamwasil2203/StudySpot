@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename='study.js') }}"></script>
+
+<div class="container mt-4">
+    <h2>Edit {{ item.name }}</h2>
+
+    <form id="editForm" data-item-id="{{ item.id }}">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" value="{{ item.name }}" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Location</label>
+            <input type="text" id="location" class="form-control" value="{{ item.location }}" />
+        </div>
+
+
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea id="description" class="form-control">{{ item.description }}</textarea>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="capacity" class="form-label">Capacity</label>
+            <input type="text" id="capacity" class="form-control" value="{{ item.capacity }}" />
+        </div>
+
+         <div class="mb-3">
+            <label for="time" class="form-label">Time</label>
+            <input type="text" id="time" class="form-control" value="{{ item.time }}" />
+        </div>
+
+         <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="text" id="image" class="form-control" value="{{ item.image }}" />
+        </div>
+
+         <div class="mb-3">
+            <label for="noise_level" class="form-label">Noise Levels</label>
+            <input type="text" id="noise_level" class="form-control" value="{{ item.noise_level }}" />
+        </div>
+
+         <div class="mb-3">
+            <label for="wifi" class="form-label">Wifi</label>
+            <input type="text" id="wifi" class="form-control" value="{{ item.wifi }}" />
+        </div>
+
+         <div class="mb-3">
+            <label for="outlets" class="form-label">Outlets</label>
+            <input type="text" id="outlets" class="form-control" value="{{ item.outlets }}" />
+        </div>
+
+        <div class="mb-3">
+            <label for="related_topics" class="form-label">Related Topics</label>
+            <input type="text" class="form-control" id="related_topics" name="related_topics"
+                   value="{{ item.related_topics|join(', ') }}" placeholder="coffee, quiet, campus, etc.">
+            <div class="invalid-feedback"></div>
+            <small class="form-text text-muted">Enter topics separated by commas</small>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="discardBtn" class ="btn btn-danger" data-item-id="{{ item.id }}">Discard Changes</button>
+    </form>
+</div>
+{% endblock %}
